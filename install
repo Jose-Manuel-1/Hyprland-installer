@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
+echo "INSTALADOR DE HYPRLAND PERSONALIZADO"
+sudo pacman -S --needed hyprland waybar foot rofi grim slurp wl-clipboard cliphist mako pamixer brightnessctl thunar xdg-desktop-portal-hyprland blueman awww
+paru -S hyprmod
+
+echo "PAQUETES INSTALADOS, AHORA SE INSTALARÁN LAS CONFIGURACIONES"
+
+cp -r "$SCRIPT_DIR/hypr" ~/.config
+echo "Hyperland configurado"
+
+cp -r "$SCRIPT_DIR/rofi" ~/.config
+echo "Rofi configurado"
+
+cp -r "$SCRIPT_DIR/waybar" ~/.config
+echo "Waybar configurado"
+
+echo "INSTALACIÓN Y CONFIGURACIÓN TERMINADA"
